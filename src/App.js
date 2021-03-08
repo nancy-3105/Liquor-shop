@@ -56,11 +56,11 @@ export default function App() {
             <GoHome />
           </HomeLinks>
           {/* static Links -- functionality needs to be done */}
-          <Search />
+          <Search data-ref="HP-Products-search" />
         </ProductSearchConatiner>
       </HeaderWrapper>
-      <Filter />
-      <ProductsGrid />
+      <Filter data-ref="HP-Products-filter" />
+      <ProductsGrid data-ref="HP-product-grid" />
     </AppContainer>
   );
 }
