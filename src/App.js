@@ -45,8 +45,8 @@ const ProductSearchConatiner = styled.div`
 `;
 
 export default function App() {
-  // ProductName will keep a track of ancy change to the search input
-  const [productName, setproductName] = useState("");
+  // ProductName will keep a track of any change to the search input
+  const [productName, setProductName] = useState("");
 
   // FilteredProducts will contain the updated list of products based on search
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -60,7 +60,7 @@ export default function App() {
   // handleSearchChange will set the states based on search
   // it runs eachtime there's a change in the input
   const handleSearchChange = (e) => {
-    setproductName(e);
+    setProductName(e);
     setFilteredProducts(products);
   }; // handleSearchChange ends here
 
@@ -97,7 +97,7 @@ export default function App() {
 
   const handleFilterChange = (e) => {
     let newList = [];
-    setproductName(""); // if the filterByType is selected the it will clear produt search bar
+    setProductName(""); // if the filterByType is selected the it will clear product search bar
 
     /* if the filter by type dropdown has the value selected All then it will setFilteredProducts to the
      original products list
@@ -108,7 +108,7 @@ export default function App() {
       newList = products.filter((product) => product.type === e.label);
       setFilteredProducts(newList);
     }
-    setSelected(e.value); // it will set the state based on the dropdown value seletec
+    setSelected(e.value); // it will set the state based on the dropdown value seleted
   }; // handleFilterChange ends here
 
   return (
