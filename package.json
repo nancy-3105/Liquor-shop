@@ -1,17 +1,17 @@
 {
-  "name": "react",
+  "name": "liquor-shop",
   "version": "1.0.0",
-  "description": "React example starter project",
-  "keywords": [
-    "react",
-    "starter"
-  ],
+  "description": "",
+  "keywords": [],
   "main": "src/index.js",
   "dependencies": {
     "@babel/runtime": "7.13.8",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-scripts": "4.0.0"
+    "react-icons": "4.2.0",
+    "react-scripts": "4.0.0",
+    "react-select": "4.2.1",
+    "styled-components": "5.2.1"
   },
   "devDependencies": {
     "typescript": "4.1.3"
