@@ -28,5 +28,5 @@ Github Cli - gh repo clone nancy-3105/Liquor-shop
 
 Steps to run the project - 
 #Clone the Repo
-#npm ci
+#npm install
 #npm start
