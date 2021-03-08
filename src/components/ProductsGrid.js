@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { device } from "../constants/theme";
+// import {* as image} from "../productImages";
 
 const Container = styled.div`
   margin-bottom: 1rem;
@@ -35,7 +36,7 @@ const Col = styled.div`
 `;
 const ProductDetails = styled.div``;
 
-const ProductImage = styled.div`
+const ProductImage = styled.img`
   border: 1px solid black;
   height: 150px;
   margin: 10px 30px;
@@ -78,7 +79,10 @@ export const ProductsGrid = ({ products }) => {
             {product.isSale && (
               <SaleTag data-ref="product-sale-tag"> Sale </SaleTag>
             )}
-            <ProductImage data-ref="product-image" />
+            <ProductImage
+              data-ref="product-image"
+              src={"./images/" + product.productImage}
+            />
             <ProductDetails data-ref="product-details">
               <ProductName data-ref="product-name">
                 {product.productName}
