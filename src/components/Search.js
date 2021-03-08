@@ -46,11 +46,11 @@ const SearchButton = styled.button`
   }
 `;
 
-export const Search = () => {
+export const Search = ({ value, searchButonOnclick, handleChange }) => {
   return (
     <SearchWrapper>
-      <SearchBar />
-      <SearchButton>
+      <SearchBar value={value} onChange={handleChange} />
+      <SearchButton onClick={searchButonOnclick}>
         <GoSearch /> Search
       </SearchButton>
     </SearchWrapper>

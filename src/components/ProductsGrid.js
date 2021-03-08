@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { device } from "../constants/theme";
-import { Products } from "../constants/productsFixture";
 
 const Container = styled.div`
   margin-bottom: 1rem;
@@ -67,12 +66,15 @@ const SaleTag = styled.div`
 const ProductName = styled.div``;
 const ProductPrice = styled.div``;
 
-export const ProductsGrid = () => {
+export const ProductsGrid = ({ products }) => {
   return (
     <Container>
       <Row>
-        {Products.map((product, i) => (
+        {/* filteredProducts or the original products list is passed as param 
+        from the parent Component */}
+        {products.map((product, i) => (
           <Col key={i}>
+            {/* SaleTag is only shown on the product having isSale attribute true */}
             {product.isSale && (
               <SaleTag data-ref="product-sale-tag"> Sale </SaleTag>
             )}
