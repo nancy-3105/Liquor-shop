@@ -33,12 +33,21 @@ const SelectFilter = styled.div`
     width: 10%;
   }
 `;
-export const Filter = () => {
+export const Filter = ({ value, handleChange, options }) => {
   return (
     <FilterContainer>
       <Label>Filter By:</Label>
       <SelectFilter>
-        <Select />
+        <Select
+          data-ref="Select-Drop-Down"
+          value={options.filter(function (option) {
+            return option.value === value;
+          })}
+          onChange={handleChange}
+          options={options}
+          getOptionValue={(option) => option.value}
+          getOptionLabel={(option) => option.label}
+        />
       </SelectFilter>
     </FilterContainer>
   );

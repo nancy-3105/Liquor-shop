@@ -6,6 +6,7 @@ import { Search } from "../src/components/Search";
 import { Filter } from "../src/components/Filter";
 import { ProductsGrid } from "../src/components/ProductsGrid";
 import { Products } from "../src/constants/productsFixture";
+import { Options } from "../src/constants/selectOptionsFixture";
 
 const AppContainer = styled.div`
   font-family: sans-serif;
@@ -53,6 +54,9 @@ export default function App() {
   // products contains all the products needs to be displayed
   const [products] = useState(Products);
 
+  // selected will keep a track of any change to the filter by type dropdown
+  const [selected, setSelected] = useState("ALL");
+
   // handleSearchChange will set the states based on search
   // it runs eachtime there's a change in the input
   const handleSearchChange = (e) => {
@@ -91,6 +95,22 @@ export default function App() {
     }
   }; // handleSearchClick ends here
 
+  const handleFilterChange = (e) => {
+    let newList = [];
+    setproductName(""); // if the filterByType is selected the it will clear produt search bar
+
+    /* if the filter by type dropdown has the value selected All then it will setFilteredProducts to the
+     original products list
+     else it will filter a new list based on the dropdown value */
+    if (e.value === "ALL") {
+      setFilteredProducts(products);
+    } else {
+      newList = products.filter((product) => product.type === e.label);
+      setFilteredProducts(newList);
+    }
+    setSelected(e.value); // it will set the state based on the dropdown value seletec
+  }; // handleFilterChange ends here
+
   return (
     <AppContainer>
       <HeaderWrapper>
@@ -112,15 +132,24 @@ export default function App() {
           />
         </ProductSearchConatiner>
       </HeaderWrapper>
-      <Filter data-ref="HP-Products-filter" />
+      <Filter
+        data-ref="HP-Products-filter"
+        value={selected}
+        handleChange={(e) => handleFilterChange(e)}
+        options={Options}
+      />
 
-      {/*  if the productName is empty the original list or products is passed as param
-else productName is set then the list of related searched 
-Products is passed as parameter */}
+      {/*  if the productName is empty and filter by type has "All" selected 
+      then the original list or products is passed as param else productName 
+      is set then the list of related searched Products is passed as parameter */}
 
       <ProductsGrid
         data-ref="HP-product-grid"
-        products={productName.length < 1 ? products : filteredProducts}
+        products={
+          productName.length < 1 && selected === "ALL"
+            ? products
+            : filteredProducts
+        }
       />
     </AppContainer>
   );
