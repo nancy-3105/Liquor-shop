@@ -4,6 +4,7 @@ import { device } from "../src/constants/theme";
 import { GoArrowRight, GoArrowLeft, GoX, GoHome } from "react-icons/go";
 import { Search } from "../src/components/Search";
 import { Filter } from "../src/components/Filter";
+import { ProductsGrid } from "../src/components/ProductsGrid";
 
 const AppContainer = styled.div`
   font-family: sans-serif;
@@ -59,6 +60,7 @@ export default function App() {
         </ProductSearchConatiner>
       </HeaderWrapper>
       <Filter />
+      <ProductsGrid />
     </AppContainer>
   );
 }
